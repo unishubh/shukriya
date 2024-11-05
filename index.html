@@ -272,7 +272,7 @@ $(document).ready(function() {
 							<!-- PHOTO-ITEM -->
 							<div class="photo-item frame-border animation fadeInLeft">
 								<!-- PHOTO -->
-								<img src="images/zYyUXQrFQSaF.jpg" alt="" class="hover-animation image-zoom-in">
+								<img src="images/me1.jpeg" alt="" class="hover-animation image-zoom-in">
 								<!-- PHOTO OVERLAY -->
 								<div class="layer wh100 hidden-black-overlay hover-animation fade-in"></div><!-- END of PHOTO OVERLAY -->
 								<!-- ICON LINK -->
@@ -1050,7 +1050,7 @@ $(document).ready(function() {
                             	</h2>
                             
                             	<p>
-                            		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices malesuada ante quis pharetra. Nullam notn bibendum dolor. Ut vel turpis accumsan, efficitur dolor fermentum, tincidunt metus. Etiam ut ultrices nibh.  Etiam aliquam mauris non hendrerit faucibus. Proin pulvinar congue  ex, vitae 
+                            		We are thrilled to have you share in our special day! Please let us know if you can attend by filling out the RSVP form below. Your response helps us make this event unforgettable for everyone. We look forward to celebrating together with joy, laughter, and love. Kindly provide your details and any special requests, so we can ensure everything is perfect for you!
                             	</p>
                             
                             	
@@ -1059,92 +1059,84 @@ $(document).ready(function() {
                    </div> <!-- END of ROW-1 -->
                    
                   <!-- FORM -->
-                <div class="row">
-                	<div id="message" class="col-md-12 message"> <!-- Show Message --> </div>
-                  
-                	<form method="post" action="rsvp.php" id="rsvpform">
-                		<div class="col-md-6">
-                        	<div id="fullname" class="form-group">
-    							<label for="inputname">*NAME</label>
-    							<input type="text" class="form-control ajax-input" id="inputname" placeholder="" data-required="Name Required" data-output-label="Output Name">
- 							</div>
-							 <div id="numberOfGuests" class="form-group">
-    							<label for="inputguests">*No Of Guests</label>
-    							<input type="number" class="form-control ajax-input" id="inputguests" placeholder="" data-required="Number" data-output-label="Output Guests">
- 							</div>
-							 <div id="arrivalTime" class="form-group">
-    							<label for="inputarrivalTime">*Arrival Time</label>
-    							<input type="datetime-local" class="form-control ajax-input" id="inputarrivalTime" placeholder="" data-required="Number" data-output-label="Output Guests">
- 							</div>
-                            <!-- <div id="email" class="form-group">
-    							<label for="inputemail">*EMAIL</label>
-    							<input type="email" class="form-control ajax-input" id="inputemail" placeholder="" data-required="Email Required" data-output-label="Output Email">
- 							</div>
-                        	<div id="events" class="form-group">
-    							<label for="inputevents">*I WILL ATTEND TO</label>
-    							<select multiple="" id="inputevents" class="form-control ajax-input" data-required="Please Select Events" data-output-label="Output Events">
- 									<option>Wedding Day</option>
-  									<option>Ceremony Day</option>
-                                	<option>The Party</option>
-								</select>
- 							</div> -->
-                    	</div>
-                    	<div class="col-md-6">
-                        	<div class="form-group">
-    							<label for="inputmessage">LEAVE YOUR MESSAGE</label>
-    							<textarea id="inputmessage" class="form-control ajax-input" rows="14" data-output-label="Output Message"></textarea>
- 							</div> 
-                    	</div>
-                        <div class="col-md-12 text-center">
-                        	<div class="form-group">
-    							<input type="submit" id="submitButton" name="submitButton" class="button medium reverse" value="SUBMIT">
- 							</div> 
-                    	</div>
-                    </form>
-                   
-              	</div>
-                </div>
-           
-           	</section>
-			   <script>
-				document.getElementById("rsvpform").addEventListener("submit", async function(e) {
-				  e.preventDefault();
-			  
-				  // Collect form data
-				  const name = document.getElementById("inputname").value;
-				  const guests = document.getElementById("inputguests").value;
-				  const arrivalTime = document.getElementById("inputarrivalTime").value;
-				  const message = document.getElementById("inputmessage").value;
-			  
-				  try {
-					// Send form data to Google Apps Script Web App
-					const response = await fetch("https://script.google.com/macros/s/AKfycbzaNDffYy2PseazW2jEomKyRXY278v7T8bJvQJsO5mVJB3t4PqK0J6HVckCKl02rejL/exec", {
-						method: "POST",
-						headers: { "Content-Type": "application/json" },
-						body: JSON.stringify({ name, guests, arrivalTime, message }),
-						mode: 'no-cors',
-					});
+               <!-- Include SweetAlert CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-					// Check if the response is okay
-					if (response.ok) {
-						const result = await response.json();
-						console.log("result", result);
-						if (result.status === "success") {
-							document.getElementById("message").innerHTML = "<p>Thank you for your RSVP!</p>";
-							document.getElementById("rsvpform").reset();
-						} else {
-							document.getElementById("message").innerHTML = "<p>There was an error. Please try again.</p>";
-						}
-					} else {
-						// Handle HTTP error
-						document.getElementById("message").innerHTML = "<p>Failed to submit. Please try again.</p>";
-					}
-				} catch (error) {
-					console.error("Error:", error);
-					document.getElementById("message").innerHTML = "<p>There was an error. Please try again.</p>";
-				}
-			});
-			  </script>
+<div class="row">
+  <div id="message" class="col-md-12 message"><!-- Show Message --> </div>
+  <form id="rsvpform">
+    <div class="col-md-6">
+      <div id="fullname" class="form-group">
+        <label for="inputname">*NAME</label>
+        <input type="text" class="form-control ajax-input" id="inputname" placeholder="" data-required="Name Required" data-output-label="Output Name">
+      </div>
+      <div id="numberOfGuests" class="form-group">
+        <label for="inputguests">*No Of Guests</label>
+        <input type="number" class="form-control ajax-input" id="inputguests" placeholder="" data-required="Number" data-output-label="Output Guests">
+      </div>
+      <div id="arrivalTime" class="form-group">
+        <label for="inputarrivalTime">*Arrival Time</label>
+        <input type="datetime-local" class="form-control ajax-input" id="inputarrivalTime" placeholder="" data-required="Number" data-output-label="Output Guests">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="inputmessage">LEAVE YOUR MESSAGE</label>
+        <textarea id="inputmessage" class="form-control ajax-input" rows="14" data-output-label="Output Message"></textarea>
+      </div> 
+    </div>
+    <div class="col-md-12 text-center">
+      <div class="form-group">
+        <input type="submit" id="submitButton" name="submitButton" class="button medium reverse" value="SUBMIT">
+      </div> 
+    </div>
+  </form>
+</div>
+
+<script>
+  document.getElementById("rsvpform").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    // Collect form data
+    const name = document.getElementById("inputname").value;
+    const guests = document.getElementById("inputguests").value;
+    const arrivalTime = document.getElementById("inputarrivalTime").value;
+    const message = document.getElementById("inputmessage").value;
+
+    try {
+      // Send form data to Google Apps Script Web App
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzaNDffYy2PseazW2jEomKyRXY278v7T8bJvQJsO5mVJB3t4PqK0J6HVckCKl02rejL/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        mode: "no-cors",
+        body: JSON.stringify({ name, guests, arrivalTime, message })
+      });
+
+      // Display success message with SweetAlert
+      Swal.fire({
+        icon: 'success',
+        title: 'Thank you for your RSVP!',
+        text: 'We have received your details.',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#4CAF50'
+      });
+
+      document.getElementById("rsvpform").reset();
+
+    } catch (error) {
+      // Display error message with SweetAlert
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'There was an error. Please try again later!',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#d33'
+      });
+    }
+  });
+</script>
+
             
             
             
@@ -1235,7 +1227,7 @@ $(document).ready(function() {
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script src="js/7Q1Wq3BlEQnO.js"></script>
         <!-- RSVP -->
-        <script src="js/2rg6qs2wG6vG.js"></script>
+        <!-- <script src="js/2rg6qs2wG6vG.js"></script> -->
         
         <!-- Custom Core Script -->
         <script type="text/javascript" src="js/ID8j5QiGG2uY.js"></script>        
